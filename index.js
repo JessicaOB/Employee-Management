@@ -1,12 +1,22 @@
-const mysql = require('mysql2');
+var inquirer = require('inquirer');
 
-// Connect to database
-const db = mysql.createConnection(
-  {
-    host: 'localhost',
-    user: 'root',
-    password: 'process.env.DB_PASSWORD',
-    database: 'employees_db'
-  },
-  console.log(`Connected to the employees_db database.`)
-);
+const mainMenu = () => {
+  return inquirer.prompt([
+    {
+      type: 'list',
+            name: 'menu',
+            message: 'What would you like to do?',
+            choices: [
+              'View All Departments',
+              'Add Department',
+              'View All Roles',
+              'Add Role',
+              'View All Employees',
+              'Add Employee',
+              'Update Employee Role'
+            ]
+    }
+  ])
+}
+
+
