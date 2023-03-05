@@ -2,6 +2,7 @@ var inquirer = require('inquirer');
 const dbconnection = require('./db/connection');
 const cTable = require('console.table');
 const { getDepartments, departmentPrompt, addDepartment } = require('./lib/departments');
+const { getRoles, rolesPrompt, addRole } = require('./lib/roles');
 
 const mainMenu = () => {
   return inquirer.prompt([
@@ -22,46 +23,47 @@ const mainMenu = () => {
     }
   ])
   .then((answers) => {
-    const { choices } = answers;
+    const { menu } = answers;
 
-    if (choices === "View All Departments") {
+    if ( menu === "View All Departments") {
         viewTable(getDepartments);
     }
 
-    if (choices === "Add Department") {
+    if ( menu === "Add Department") {
         add(departmentPrompt, addDepartment);
     }
 
-    // if (choices === "View All Roles") {
-    //     viewTable(getRoles);
-    // }
+    if (menu === "View All Roles") {
+        viewTable(getRoles);
+    }
 
-    // if (choices === "Add Role") {
-    //     addRole();
-    // }
+    if (menu === "Add Role") {
+        add(rolesPrompt, addRole);
+    }
 
-    // if (choices === "View All Employees") {
+    // if (menu === "View All Employees") {
     //     viewTable(getEmployees);
     // }
 
-    // if (choices === "Add Employee") {
+    // if (menu === "Add Employee") {
     //     addEmployee();
     // }
 
-    // if (choices === "Update Employee Role") {
+    // if (menu === "Update Employee Role") {
     //     update(employeeUpdatePrompt, updateEmployee);
     // }
 
-    // if (choices === "Update an employee manager") {
+    // if (menu === "Update an employee manager") {
     //     updateManager();
     // }
 
-    // if (choices === "View employees by department") {
+    // if (menu === "View employees by department") {
     //     viewTable(employeeDepartment);
     // }
 
-    if (choices === "Quit") {
+    if ( menu === "Quit") {
         console.log("Goodbye")
+        process.exit(0);
     };
 });
 };
