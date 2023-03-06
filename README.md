@@ -13,7 +13,7 @@
 * [Questions](#questions)
 
 ## Description
-  This is a command line application written using javascript, node, inquirer and MySQL2. It allows employers to put together a database of departments, roles, and employees within their company and manager the data. Seed dsta has been provided for testing.
+  This is a command line application written using javascript, node, inquirer and MySQL2. It allows employers to put together a database of departments, roles, and employees within their company and manager the data. Seed data has been provided for testing.
   
 ## Installation
   The following programs are required for the use of this program:
@@ -26,7 +26,7 @@
   
 ## Usage
   Click the link for a demonstration video showing how to use this application:
-  [Demonstration Video](https://watch.screencastify.com/v/4ZI3UmQeiplTMibPUCPp)
+  [Demonstration Video](https://watch.screencastify.com/v/RwdL5bc0tU6cEFlbioye)
   
 ## Contributing
   Built by Jessica Oboh.
