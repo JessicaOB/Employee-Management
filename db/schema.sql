@@ -1,6 +1,7 @@
+-- Active: 1669946528283@@127.0.0.1@3306@employees_db
 DROP TABLE IF EXISTS employees;
 DROP TABLE IF EXISTS roles;
-DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS department;
 
 CREATE TABLE department (
     id INTEGER PRIMARY KEY AUTO_INCREMENT,
@@ -21,5 +22,6 @@ CREATE TABLE employee (
     last_name VARCHAR(30) NOT NULL,
     role_id INTEGER,
     manager_id INTEGER,
+    INDEX manager_ind (manager_id),
     CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE SET NULL
 );

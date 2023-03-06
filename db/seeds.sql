@@ -1,3 +1,4 @@
+-- Active: 1669946528283@@127.0.0.1@3306@employees_db
 INSERT INTO department (name)
 VALUES
 ('Programming'),
@@ -16,5 +17,9 @@ VALUES
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES
-('Owen', 'Wilson', 1, null);
+('Owen', 'Wilson', 1, null),
+('Kevin', 'Hart', 2, 1),
+('Jane', 'Lynch', 5, null),
+('Issa', 'Rae', 3, 3),
+('Jackie', 'Chan', 4, 3);
 

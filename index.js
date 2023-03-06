@@ -3,6 +3,7 @@ const dbconnection = require('./db/connection');
 const cTable = require('console.table');
 const { getDepartments, departmentPrompt, addDepartment } = require('./lib/departments');
 const { getRoles, rolesPrompt, addRole } = require('./lib/roles');
+const { getEmployees } = require('./lib/employees');
 
 const mainMenu = () => {
   return inquirer.prompt([
@@ -41,24 +42,16 @@ const mainMenu = () => {
         add(rolesPrompt, addRole);
     }
 
-    // if (menu === "View All Employees") {
-    //     viewTable(getEmployees);
-    // }
+    if (menu === "View All Employees") {
+        viewTable(getEmployees);
+    }
 
     // if (menu === "Add Employee") {
-    //     addEmployee();
+    //     add(employeePromtp, addEmployee);
     // }
 
     // if (menu === "Update Employee Role") {
     //     update(employeeUpdatePrompt, updateEmployee);
-    // }
-
-    // if (menu === "Update an employee manager") {
-    //     updateManager();
-    // }
-
-    // if (menu === "View employees by department") {
-    //     viewTable(employeeDepartment);
     // }
 
     if ( menu === "Quit") {
@@ -67,17 +60,18 @@ const mainMenu = () => {
     };
 });
 };
-
+//function for viewing a table
 const viewTable = (viewSql) => {
     dbconnection.query(viewSql, (err, result) => console.table(result));
     setTimeout(mainMenu, 1000);
 };
+//function for adding to database
 const add = (askPrompt, addSql) => {
     return inquirer.prompt(askPrompt)
     .then(addSql)
     .then(mainMenu)
 };
-
+//function for updating 
 const update = (askPrompt, updateSql) => {
     return inquirer.prompt(askPrompt)
     .then(updateSql)
